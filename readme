@@ -1,0 +1,12 @@
+Bu proje, bir güneş panelinin temel elektriksel parametrelerinin verimli bir şekilde ölçülmesi amacıyla oluşturulmuştur.
+
+Projenin amacı, güneş enerjisi panelinin voltajını ölçmek ve arduino kullanarak
+ölçüm sonuçlarını düşük maliyet ile parametrelerin ölçümünü kolaylaştırmaktır.
+
+Projede, 16x2 LCD ekran (I2C), Arduino UNO, güneş paneli ve jumper kablo kullanılmıştır.
+
+Projenin şeması ve görselleri - (https://drive.google.com/drive/folders/1swczDCCd2oD5A9IPyLnaaD5ddO9iIp1E?usp=sharing)
+
+Proejenin çalışma prensibi, A0 pininden güneş panelinin voltajını okutma ve
+sonrasında okunan değeri Arduino üzerinden hesaplayarak LCD ekran üzerine yazmaktır.
+
