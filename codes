@@ -1,0 +1,27 @@
+#include <Wire.h>  // I2C iletisimi icin Wire kutuphanesini dahil et
+#include <LiquidCrystal_I2C.h>   // I2C LED ekrani icin, LiquidCrystal_I2C kutuphanesini dahil et
+
+float gunes_panel = 0; // Gunes paneli voltaji icin degisken tanimla
+
+LiquidCrystal_I2C lcd(0x27, 16, 2); // I2C adresi ve boyutu (16x2) ile LiquidCrystal_I2C nesnesi olustur
+
+void setup() {
+pinMode(A0, INPUT); // A0 pinini giris olarak ayarla
+Serial.begin(9600); // Seri monitoru baslat
+
+lcd.init();  
+lcd.backlight(); // Ledin arka isigini ac
+}
+
+void loop() {  
+gunes_panel = (analogRead(A0) * (5.001 / 1023.001)); // Analog giristen degeri oku ve volt cevir
+Serial.println(gunes_panel); // Degeri seri monitorde yazdir
+// LCD ekrana yazdir
+lcd.setCursor(0, 0);  
+lcd.print("Solar Cell Volt");  
+lcd.setCursor(0, 1); 
+ lcd.print("Value =");  
+lcd.setCursor(10, 1);  
+lcd.print(gunes_panel); delay(10);
+// 10 ms bekle
+}
